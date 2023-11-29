@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
     {
         rigidbody2D.velocity = direction.normalized * speed * Time.fixedDeltaTime;
 
-        State();
+        ImagePlay();
     }
 
     void Update()
@@ -34,7 +34,7 @@ public class Player : MonoBehaviour
         direction.y = Input.GetAxisRaw("Vertical");
     }
 
-    public void State()
+    public void ImagePlay()
     {
         if (direction != Vector2.zero)
         {
