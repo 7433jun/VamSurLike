@@ -14,8 +14,8 @@ TagManager:
   - Player
   - Monster
   - Bullet
-  - 
-  - 
+  - Item Collider
+  - Item
   - 
   - 
   - 
