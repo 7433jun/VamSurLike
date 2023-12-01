@@ -10,8 +10,11 @@ public abstract class Monster : MonoBehaviour
 
     [SerializeField] protected float speed;
     [SerializeField] protected float attack;
+    [SerializeField] protected float health;
+
     [SerializeField] Vector2 direction;
     [SerializeField] Transform playerPosition;
+    [SerializeField] protected GameObject expOrb;
 
     void Start()
     {
@@ -26,9 +29,10 @@ public abstract class Monster : MonoBehaviour
 
     void FixedUpdate()
     {
-
-
-        Move();
+        if (health > 0)
+        {
+            Move();
+        }
     }
 
     protected void Move()
@@ -49,6 +53,25 @@ public abstract class Monster : MonoBehaviour
         else if (direction.x < 0)
         {
             spriteRenderer.flipX = true;
+        }
+    }
+
+    public void Hit(float damage)
+    {
+        health -= damage;
+
+        animator.SetTrigger("Hit");
+
+        if(health <= 0)
+        {
+            rigidbody2D.velocity = Vector2.zero;
+
+            GetComponent<CircleCollider2D>().enabled = false;
+
+            animator.SetBool("Walking", false);
+            animator.SetBool("Dead", true);
+
+            Death();
         }
     }
 

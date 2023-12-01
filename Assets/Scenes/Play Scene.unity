@@ -788,6 +788,37 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &303785244
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 303785245}
+  m_Layer: 6
+  m_Name: Player Pivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &303785245
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303785244}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1511130126}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &350224825
 GameObject:
   m_ObjectHideFlags: 0
@@ -1126,7 +1157,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &703878886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5347,6 +5378,54 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1176394321
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1176394322}
+  - component: {fileID: 1176394323}
+  m_Layer: 0
+  m_Name: Weapon Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1176394322
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1176394321}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1176394323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1176394321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96a2f40d4e4cf5a41a81d1b6a0943beb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPivot: {fileID: 303785245}
+  waeponPivot: {fileID: 646792790}
+  waeponList:
+  - {fileID: 1349717770198522335, guid: a4dec1bc4cbc5794db2d540db57bbdc5, type: 3}
 --- !u!1 &1434963645
 GameObject:
   m_ObjectHideFlags: 0
@@ -9609,7 +9688,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 4723107735738678597, guid: 9745dbe09bc4dc14291159778ab18df2, type: 3}
+  m_Sprite: {fileID: 4723107735738678597, guid: 3ae3e53a9b0e3a04eb156f8455a0b953, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -9635,6 +9714,7 @@ Transform:
   m_Children:
   - {fileID: 830922147}
   - {fileID: 50180687}
+  - {fileID: 303785245}
   - {fileID: 646792790}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9667,7 +9747,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Library: []
-  m_SpriteLibraryAsset: {fileID: 11400000, guid: 739bc006a227209478230401fc2e4067, type: 2}
+  m_SpriteLibraryAsset: {fileID: 11400000, guid: faac44d7290e95c4197e0177d17f5aeb, type: 2}
 --- !u!50 &1511130129
 Rigidbody2D:
   serializedVersion: 4
@@ -10611,3 +10691,4 @@ SceneRoots:
   - {fileID: 229359419}
   - {fileID: 1511130126}
   - {fileID: 1903020715}
+  - {fileID: 1176394322}

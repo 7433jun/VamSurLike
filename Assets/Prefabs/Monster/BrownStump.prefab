@@ -217,5 +217,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 100
   attack: 0
+  health: 10
   direction: {x: 0, y: 0}
   playerPosition: {fileID: 0}
+  expOrb: {fileID: 7131511328779132190, guid: 073cecbf35392834abd84933954ba6d8, type: 3}
