@@ -5,15 +5,18 @@ using UnityEngine;
 
 public class TimeManager : MonoBehaviour
 {
-    [SerializeField] private float startTime;
-    [SerializeField] private float currentTime;
+    private float startTime;
+    private float currentTime;
 
+    [SerializeField] SpawnManager spawnManager;
     [SerializeField] TextMeshProUGUI timeText;
 
     void Start()
     {
         // 시작 시간 기록
         startTime = Time.time;
+
+        StartCoroutine(Test());
     }
 
     void Update()
@@ -29,5 +32,17 @@ public class TimeManager : MonoBehaviour
 
             timeText.text = $"{minutes.ToString("00")}:{seconds.ToString("00")}";
         }
+    }
+
+    IEnumerator Test()
+    {
+        yield return new WaitForSeconds(10f);
+        spawnManager.normalMonster = MonsterTypeEnum.BrownMushroom;
+        yield return new WaitForSeconds(10f);
+        spawnManager.normalMonster = MonsterTypeEnum.BrownStump;
+        yield return new WaitForSeconds(10f);
+        spawnManager.normalMonster = MonsterTypeEnum.GreenBush;
+        yield return new WaitForSeconds(20f);
+        GameManager.instance.GameEnd(true);
     }
 }

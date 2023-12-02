@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    [SerializeField] float radius;
+    [SerializeField] FactoryManager factoryManager;
     [SerializeField] Transform myCamera;
+    [SerializeField] float radius;
 
-    [SerializeField] GameObject Stump;
+    public MonsterTypeEnum normalMonster;
 
     void Start()
     {
+        normalMonster = MonsterTypeEnum.Slug;
+
         StartCoroutine(NormalSpawn());
     }
 
@@ -37,7 +40,7 @@ public class SpawnManager : MonoBehaviour
                 // 새로운 위치 설정
                 //transform.position = new Vector3(x, y, 0f);
 
-                Instantiate(Stump, new Vector3(x, y, 0f), Quaternion.identity);
+                Instantiate(factoryManager.GetMonster(normalMonster), new Vector3(x, y, 0f), Quaternion.identity);
             }
 
             yield return new WaitForSeconds(1f);

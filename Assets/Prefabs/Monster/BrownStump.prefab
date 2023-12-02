@@ -216,7 +216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 100
-  attack: 0
+  attack: 10
   health: 10
   direction: {x: 0, y: 0}
   playerPosition: {fileID: 0}

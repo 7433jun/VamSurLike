@@ -13,7 +13,9 @@ public class BrownStump : Monster
     IEnumerator DeathEvent()
     {
         yield return new WaitForSeconds(0.5f);
+
         Instantiate(expOrb, transform.position, quaternion.identity);
+
         Destroy(gameObject);
     }
 }

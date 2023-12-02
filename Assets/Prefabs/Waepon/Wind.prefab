@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5344f1b091e22c94182dc2f67108a5ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 5
+  attack: 15
   speed: 500
   fireRate: 0.5
   penetration: 1
