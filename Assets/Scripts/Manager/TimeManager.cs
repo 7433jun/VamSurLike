@@ -16,7 +16,7 @@ public class TimeManager : MonoBehaviour
         // 시작 시간 기록
         startTime = Time.time;
 
-        StartCoroutine(Test());
+        //StartCoroutine(Test());
     }
 
     void Update()
@@ -37,11 +37,11 @@ public class TimeManager : MonoBehaviour
     IEnumerator Test()
     {
         yield return new WaitForSeconds(10f);
-        spawnManager.normalMonster = MonsterTypeEnum.BrownMushroom;
+        spawnManager.normalMonster = MonsterTypeEnum.Normal2;
         yield return new WaitForSeconds(10f);
-        spawnManager.normalMonster = MonsterTypeEnum.BrownStump;
+        spawnManager.normalMonster = MonsterTypeEnum.Normal3;
         yield return new WaitForSeconds(10f);
-        spawnManager.normalMonster = MonsterTypeEnum.GreenBush;
+        spawnManager.normalMonster = MonsterTypeEnum.Normal4;
         yield return new WaitForSeconds(20f);
         GameManager.instance.GameEnd(true);
     }

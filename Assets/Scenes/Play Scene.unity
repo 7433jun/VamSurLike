@@ -1261,6 +1261,16 @@ MonoBehaviour:
   - {fileID: 1549795798861012219, guid: 7b13558742b50104995da64c9e12b185, type: 3}
   - {fileID: 4182582249143071483, guid: d4a3698cca1043d44bd1de9ac38814eb, type: 3}
   - {fileID: 3625631369376337467, guid: c64df7984a4a1a24695d95738b636c30, type: 3}
+  - {fileID: 813338367186146830, guid: 583a52cf4a7b1fa4fbff424d43f1bc03, type: 3}
+  - {fileID: 6873897400974963101, guid: 8ee4700e742ad7547a7df34f762a9c78, type: 3}
+  - {fileID: 438266193298058287, guid: 44c203d94b4f67a40905e6ef5096cc5f, type: 3}
+  - {fileID: 4076458845025060992, guid: 4e74fc6484635a0439e2663e302306f4, type: 3}
+  - {fileID: 8828172407800637176, guid: f675467fdf81fce44903501398ad6ca8, type: 3}
+  - {fileID: 4514189678611162129, guid: 6905758ef0baf8b42afd86ed24a34f00, type: 3}
+  - {fileID: 3625631369376337467, guid: c64df7984a4a1a24695d95738b636c30, type: 3}
+  - {fileID: 3625631369376337467, guid: c64df7984a4a1a24695d95738b636c30, type: 3}
+  - {fileID: 3625631369376337467, guid: c64df7984a4a1a24695d95738b636c30, type: 3}
+  - {fileID: 3625631369376337467, guid: c64df7984a4a1a24695d95738b636c30, type: 3}
 --- !u!1 &646792789
 GameObject:
   m_ObjectHideFlags: 0
@@ -15084,7 +15094,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 4723107735738678597, guid: 3ae3e53a9b0e3a04eb156f8455a0b953, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -15105,7 +15115,7 @@ Transform:
   m_GameObject: {fileID: 1511130124}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.65, y: -0.47, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

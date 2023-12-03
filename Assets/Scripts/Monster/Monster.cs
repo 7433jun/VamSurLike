@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class Monster : MonoBehaviour
 {
-    private new Rigidbody2D rigidbody2D;
+    protected new Rigidbody2D rigidbody2D;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
 
@@ -12,11 +12,10 @@ public abstract class Monster : MonoBehaviour
     [SerializeField] protected float attack;
     [SerializeField] protected float health;
 
-    [SerializeField] Vector2 direction;
-    [SerializeField] Transform playerPosition;
-    [SerializeField] protected GameObject expOrb;
+    public Vector2 direction;
+    protected Transform playerPosition;
 
-    void Start()
+    protected virtual void Start()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -33,15 +32,6 @@ public abstract class Monster : MonoBehaviour
         {
             Move();
         }
-    }
-
-    protected void Move()
-    {
-        direction = new Vector2(playerPosition.position.x - transform.position.x, playerPosition.position.y - transform.position.y);
-
-        rigidbody2D.velocity = direction.normalized * speed * Time.fixedDeltaTime;
-
-        ImagePlay();
     }
 
     public void ImagePlay()
@@ -74,6 +64,8 @@ public abstract class Monster : MonoBehaviour
             Death();
         }
     }
+
+    protected abstract void Move();
 
     protected abstract void Death();
 

@@ -4,10 +4,20 @@ using UnityEngine;
 
 public enum MonsterTypeEnum
 {
-    Slug,
-    BrownMushroom,
-    BrownStump,
-    GreenBush
+    Normal1,
+    Normal2,
+    Normal3,
+    Normal4,
+    Pattern1,
+    Pattern2,
+    Pattern3,
+    Pattern4,
+    Pattern5,
+    Pattern6,
+    MiddleBoss1,
+    MiddleBoss2,
+    MiddleBoss3,
+    LastBoss
 }
 
 public class FactoryManager : MonoBehaviour

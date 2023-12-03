@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 1549795798861012219}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.673, y: 0.711, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -161,7 +161,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 4723107735738678597, guid: 432431a605f786c4faea4466d17fd33e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -216,8 +216,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 100
-  attack: 15
+  attack: 7
   health: 10
   direction: {x: 0, y: 0}
-  playerPosition: {fileID: 0}
-  expOrb: {fileID: 7131511328779132190, guid: 073cecbf35392834abd84933954ba6d8, type: 3}
