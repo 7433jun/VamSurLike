@@ -6,21 +6,16 @@ public class Wind : Weapon
 {
     new Rigidbody2D rigidbody2D;
 
-    Vector2 direction;
-
-    public Transform playerPivot;
-    public Transform waeponPivot;
+    public Vector2 direction;
 
     // 무기 생성시 관통력보다 더 많은 적을 타격하는 현상 방지용 플래그
     bool triggerBlocker;
 
     void Start()
     {
-        triggerBlocker = true;
-
         rigidbody2D = GetComponent<Rigidbody2D>();
 
-        direction = (waeponPivot.position - playerPivot.position).normalized;
+        triggerBlocker = true;
     }
 
     void FixedUpdate()

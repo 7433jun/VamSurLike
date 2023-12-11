@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.Mathematics;
 using UnityEngine;
 
 public abstract class Monster : MonoBehaviour
@@ -14,6 +16,7 @@ public abstract class Monster : MonoBehaviour
 
     public Vector2 direction;
     protected Transform playerPosition;
+    GameObject floatingText;
 
     protected virtual void Start()
     {
@@ -22,6 +25,7 @@ public abstract class Monster : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         playerPosition = GameObject.Find("Player").transform;
+        floatingText = Resources.Load<GameObject>("Damage Text");
 
         animator.SetBool("Walking", true);
     }
@@ -50,6 +54,8 @@ public abstract class Monster : MonoBehaviour
     {
         health -= damage;
 
+        Instantiate(floatingText, transform.position + Vector3.up * 0.5f, quaternion.identity).GetComponent<TextMeshPro>().text = $"{damage}";
+
         animator.SetTrigger("Hit");
 
         if(health <= 0)
@@ -65,15 +71,22 @@ public abstract class Monster : MonoBehaviour
         }
     }
 
+    public float GetHealth()
+    {
+        return health;
+    }
+
     protected abstract void Move();
 
     protected abstract void Death();
 
-    protected void OnCollisionEnter2D(Collision2D collision)
+    protected void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("enemy attack");
+            Player player = collision.gameObject.GetComponent<Player>();
+
+            player.Hit(attack);
         }
     }
 }

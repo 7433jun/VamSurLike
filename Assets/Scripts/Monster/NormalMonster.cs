@@ -23,7 +23,14 @@ public class NormalMonster : Monster
     {
         yield return new WaitForSeconds(0.5f);
 
-        Instantiate(Resources.Load<GameObject>("Exp Orb"), transform.position, quaternion.identity);
+        if (UnityEngine.Random.value < 0.01f)
+        {
+            Instantiate(Resources.Load<GameObject>("Heart"), transform.position, quaternion.identity);
+        }
+        else
+        {
+            Instantiate(Resources.Load<GameObject>("Exp Orb"), transform.position, quaternion.identity);
+        }
 
         Destroy(gameObject);
     }

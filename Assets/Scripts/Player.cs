@@ -5,33 +5,40 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] float speed = 100f;
-    [SerializeField] public int level = 1;
-    [SerializeField] public float maxExp = 100f;
+    [SerializeField] public int level;
+    [SerializeField] public float maxExp;
     [SerializeField] public float currentExp;
     [SerializeField] public float maxHealth;
     [SerializeField] public float currentHealth;
 
-    [SerializeField] Vector2 direction;
-
     [SerializeField] Transform waeponPivot;
+
+    private Vector2 direction;
+    private bool hitFlag = true;
 
     private new Rigidbody2D rigidbody2D;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
 
+    private UpgradeManager upgradeManager;
 
     void Start()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+
+        upgradeManager = GameObject.Find("Upgrade Manager").GetComponent<UpgradeManager>();
     }
 
     void FixedUpdate()
     {
-        rigidbody2D.velocity = direction.normalized * speed * Time.fixedDeltaTime;
+        if(currentHealth > 0)
+        {
+            rigidbody2D.velocity = direction.normalized * speed * Time.fixedDeltaTime;
 
-        ImagePlay();
+            ImagePlay();
+        }
     }
 
     void Update()
@@ -76,6 +83,33 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void Hit(float damage)
+    {
+        if (hitFlag)
+        {
+            hitFlag = false;
+
+            animator.SetTrigger("Hit");
+
+            currentHealth -= damage;
+
+            if (currentHealth <= 0)
+            {
+                animator.SetBool("Idle", false);
+                animator.SetBool("Walking", false);
+                animator.SetBool("Dead", true);
+
+                rigidbody2D.velocity = Vector3.zero;
+
+                StartCoroutine(DeathEvent());
+            }
+            else
+            {
+                StartCoroutine(HitFlag());
+            }
+        }
+    }
+
     public void AddExp(float expPoint)
     {
         currentExp += expPoint;
@@ -84,16 +118,33 @@ public class Player : MonoBehaviour
         {
             currentExp -= maxExp;
             level++;
+            maxExp += 5f;
+
+            upgradeManager.LevelUp();
         }
     }
 
-    IEnumerator sword()
+    public void AddHealth(float healthPoint)
     {
-        while (true)
+        currentHealth += healthPoint;
+
+        if(currentHealth >= maxHealth)
         {
-            yield return new WaitForSeconds(0.5f);
-
-
+            currentHealth = maxHealth;
         }
+    }
+
+    IEnumerator DeathEvent()
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        GameManager.instance.GameEnd(false);
+    }
+
+    IEnumerator HitFlag()
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        hitFlag = true;
     }
 }

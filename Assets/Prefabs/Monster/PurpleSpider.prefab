@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: -2942667101054308835}
   m_Layer: 7
   m_Name: PurpleSpider
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,7 +106,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 10
+  m_Mass: 20
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -217,5 +217,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 300
   attack: 10
-  health: 10
+  health: 200
   direction: {x: 0, y: 0}

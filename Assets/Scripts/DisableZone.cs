@@ -6,6 +6,8 @@ public class DisableZone : MonoBehaviour
 {
     private void OnTriggerStay2D(Collider2D collision)
     {
-        collision.gameObject.SetActive(false);
+        Destroy(collision.gameObject);
+
+        //collision.gameObject.SetActive(false);
     }
 }

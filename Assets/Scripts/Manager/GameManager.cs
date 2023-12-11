@@ -7,6 +7,16 @@ public class GameManager : Singleton<GameManager>
 {
     [SerializeField] GameObject gameEndPanel;
 
+    public void TimeStop()
+    {
+        Time.timeScale = 0f;
+    }
+
+    public void TimeContinue()
+    {
+        Time.timeScale = 1.0f;
+    }
+
     public void GameEnd(bool isWin)
     {
         Time.timeScale = 0f;

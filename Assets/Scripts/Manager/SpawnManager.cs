@@ -8,7 +8,7 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] Transform myCamera;
     [SerializeField] float radius;
 
-    public MonsterTypeEnum normalMonster;
+    public static MonsterTypeEnum normalMonster;
 
     void Start()
     {
@@ -17,10 +17,14 @@ public class SpawnManager : MonoBehaviour
         StartCoroutine(NormalSpawn());
         StartCoroutine(Pattern1Spawn());
         StartCoroutine(Pattern2Spawn());
+        StartCoroutine(MiddleBoss1Spawn());
         StartCoroutine(Pattern3Spawn());
         StartCoroutine(Pattern4Spawn());
+        StartCoroutine(MiddleBoss2Spawn());
         StartCoroutine(Pattern5Spawn());
         StartCoroutine(Pattern6Spawn());
+        StartCoroutine(MiddleBoss3Spawn());
+        StartCoroutine(LastBossSpawn());
     }
 
     IEnumerator NormalSpawn()
@@ -93,8 +97,8 @@ public class SpawnManager : MonoBehaviour
 
         float radian = Mathf.Deg2Rad * randomAngle;
 
-        float x = myCamera.position.x + Mathf.Sin(radian) * 12;
-        float y = myCamera.position.y + Mathf.Cos(radian) * 12;
+        float x = myCamera.position.x + Mathf.Sin(radian) * 10;
+        float y = myCamera.position.y + Mathf.Cos(radian) * 10;
 
         Instantiate(factoryManager.GetMonster(MonsterTypeEnum.MiddleBoss1), new Vector3(x, y, 0f), Quaternion.identity);
     }
@@ -170,8 +174,8 @@ public class SpawnManager : MonoBehaviour
 
         float radian = Mathf.Deg2Rad * randomAngle;
 
-        float x = myCamera.position.x + Mathf.Sin(radian) * 12;
-        float y = myCamera.position.y + Mathf.Cos(radian) * 12;
+        float x = myCamera.position.x + Mathf.Sin(radian) * 10;
+        float y = myCamera.position.y + Mathf.Cos(radian) * 10;
 
         Instantiate(factoryManager.GetMonster(MonsterTypeEnum.MiddleBoss2), new Vector3(x, y, 0f), Quaternion.identity);
     }
@@ -201,18 +205,36 @@ public class SpawnManager : MonoBehaviour
     {
         yield return new WaitForSeconds(480f);
 
+        GameObject warningCircle = Resources.Load<GameObject>("Warning Circle");
+        Transform playerTransform = GameObject.Find("Player").GetComponent<Transform>();
+
         for (int i = 0; i < 6; i++)
         {
+            Vector2 spawnPivot = playerTransform.position;
+
             for (float angle = 0f; angle < 360f; angle += 45f)
             {
                 float radian = Mathf.Deg2Rad * angle;
 
-                float x = myCamera.position.x + Mathf.Sin(radian) * 12;
-                float y = myCamera.position.y + Mathf.Cos(radian) * 12;
+                float x = spawnPivot.x + Mathf.Sin(radian) * 5;
+                float y = spawnPivot.y + Mathf.Cos(radian) * 5;
+
+                Instantiate(warningCircle, new Vector3(x, y, 0f), Quaternion.identity);
+            }
+
+            yield return new WaitForSeconds(0.9f);
+
+            for (float angle = 0f; angle < 360f; angle += 45f)
+            {
+                float radian = Mathf.Deg2Rad * angle;
+
+                float x = spawnPivot.x + Mathf.Sin(radian) * 5;
+                float y = spawnPivot.y + Mathf.Cos(radian) * 5;
 
                 Instantiate(factoryManager.GetMonster(MonsterTypeEnum.Pattern6), new Vector3(x, y, 0f), Quaternion.identity);
             }
-            yield return new WaitForSeconds(5f);
+
+            yield return new WaitForSeconds(4.1f);
         }
     }
 
@@ -224,8 +246,8 @@ public class SpawnManager : MonoBehaviour
 
         float radian = Mathf.Deg2Rad * randomAngle;
 
-        float x = myCamera.position.x + Mathf.Sin(radian) * 12;
-        float y = myCamera.position.y + Mathf.Cos(radian) * 12;
+        float x = myCamera.position.x + Mathf.Sin(radian) * 10;
+        float y = myCamera.position.y + Mathf.Cos(radian) * 10;
 
         Instantiate(factoryManager.GetMonster(MonsterTypeEnum.MiddleBoss3), new Vector3(x, y, 0f), Quaternion.identity);
     }
@@ -238,8 +260,8 @@ public class SpawnManager : MonoBehaviour
 
         float radian = Mathf.Deg2Rad * randomAngle;
 
-        float x = myCamera.position.x + Mathf.Sin(radian) * 12;
-        float y = myCamera.position.y + Mathf.Cos(radian) * 12;
+        float x = myCamera.position.x + Mathf.Sin(radian) * 10;
+        float y = myCamera.position.y + Mathf.Cos(radian) * 10;
 
         Instantiate(factoryManager.GetMonster(MonsterTypeEnum.LastBoss), new Vector3(x, y, 0f), Quaternion.identity);
     }

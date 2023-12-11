@@ -12,37 +12,26 @@ public class ExpOrb : MonoBehaviour
 
     void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-
         playerTransform = GameObject.Find("Player").transform;
 
         player = playerTransform.GetComponent<Player>();
 
-        //SetColor();
+        StartCoroutine(RemoveTimer());
     }
 
     void Update()
     {
         if (playerCheck)
         {
-            transform.position = Vector2.Lerp(transform.position, playerTransform.position + new Vector3(0, 0.5f, 0), 0.01f);
+            transform.position = Vector2.Lerp(transform.position, playerTransform.position + new Vector3(0, 0.5f, 0), 0.1f);
         }
     }
 
-    public void SetColor()
+    IEnumerator RemoveTimer()
     {
-        switch (expPoint)
-        {
-            case 1:spriteRenderer.color = Color.red; break;
-            case 2:spriteRenderer.color = new Color(1, 0.5f, 0); break;
-            case 3:spriteRenderer.color = Color.yellow; break;
-            case 4:spriteRenderer.color = Color.green; break;
-            case 5: spriteRenderer.color = Color.blue; break;
-            case 6: spriteRenderer.color = new Color(0.2f, 0, 1); break;
-            case 7: spriteRenderer.color = new Color(0.5f, 0, 1); break;
-            default:
-                break;
-        }
+        yield return new WaitForSeconds(60f);
+
+        Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 7000579490468153208}
   m_Layer: 7
   m_Name: HellDog
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -217,5 +217,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 100
   attack: 10
-  health: 10
+  health: 100
   direction: {x: 0, y: 0}

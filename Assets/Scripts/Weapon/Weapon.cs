@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    [SerializeField] protected float attack;
-    [SerializeField] protected float speed;
-    [SerializeField] protected float fireRate;
-    [SerializeField] protected int penetration;
+    protected float attack;
+    protected float speed;
+    protected int penetration;
 
-    void Start()
+    public void SetStats(WeaponStats weaponStats)
     {
-        
+        attack = weaponStats.attack;
+        speed = weaponStats.speed;
+        penetration = weaponStats.penetration;
     }
 }

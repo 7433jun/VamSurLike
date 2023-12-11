@@ -186,6 +186,6 @@ MonoBehaviour:
   attack: 15
   speed: 500
   fireRate: 0.5
-  penetration: 1
+  penetration: 2
   playerPivot: {fileID: 0}
   waeponPivot: {fileID: 0}
