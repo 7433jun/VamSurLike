@@ -217,5 +217,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 100
   attack: 10
-  health: 80
+  health: 120
   direction: {x: 0, y: 0}

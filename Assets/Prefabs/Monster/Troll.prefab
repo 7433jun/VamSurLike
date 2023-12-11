@@ -218,7 +218,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 100
   attack: 25
-  health: 100
+  health: 3500
   direction: {x: 0, y: 0}
   warningIcon: {fileID: 9172780915490354401}
 --- !u!1 &9172780915490354401

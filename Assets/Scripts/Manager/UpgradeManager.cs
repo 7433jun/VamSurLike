@@ -288,19 +288,19 @@ public class UpgradeManager : MonoBehaviour
                         result = "투사체 수 1 증가";
                         break;
                     case 2:
-                        result = "공격범위 100% 증가, 공격력 10 증가";
+                        result = "공격력 10 증가";
                         break;
                     case 3:
                         result = "투사체 수 1 증가";
                         break;
                     case 4:
-                        result = "공격범위 100% 증가, 공격력 20 증가";
+                        result = "공격력 20 증가";
                         break;
                     case 5:
                         result = "쿨타임 0.5초 감소";
                         break;
                     case 6:
-                        result = "공격범위 100% 증가, 공격력 10 증가";
+                        result = "공격력 10 증가";
                         break;
                     case 7:
                         result = "투사체 수 1 증가";
