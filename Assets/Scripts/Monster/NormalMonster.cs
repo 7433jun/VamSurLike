@@ -23,7 +23,7 @@ public class NormalMonster : Monster
     {
         yield return new WaitForSeconds(0.5f);
 
-        if (UnityEngine.Random.value < 0.01f)
+        if (UnityEngine.Random.value < 0.02f)
         {
             Instantiate(Resources.Load<GameObject>("Heart"), transform.position, quaternion.identity);
         }

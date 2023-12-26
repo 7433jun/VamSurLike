@@ -8,7 +8,7 @@ public class ExpOrb : MonoBehaviour
     Transform playerTransform;
     Player player;
     bool playerCheck;
-    float expPoint = 5f;
+    [SerializeField] float expPoint;
 
     void Start()
     {
@@ -23,7 +23,7 @@ public class ExpOrb : MonoBehaviour
     {
         if (playerCheck)
         {
-            transform.position = Vector2.Lerp(transform.position, playerTransform.position + new Vector3(0, 0.5f, 0), 0.1f);
+            transform.position = Vector2.Lerp(transform.position, playerTransform.position + new Vector3(0, 0.5f, 0), 0.15f);
         }
     }
 

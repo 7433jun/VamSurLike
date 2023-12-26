@@ -82,6 +82,12 @@ public class Kunai : Weapon
 
             if (monster != null)
             {
+                if(monster.GetHealth() <= 0)
+                {
+                    triggerBlocker = true;
+                    return;
+                }
+
                 monster.Hit(attack);
 
                 penetration--;

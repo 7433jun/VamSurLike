@@ -1070,6 +1070,67 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1001 &201032349
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 480741741128912642, guid: fc466d04ea514084da087c7affa97706, type: 3}
+      propertyPath: expPoint
+      value: 145
+      objectReference: {fileID: 0}
+    - target: {fileID: 7131511328779132190, guid: fc466d04ea514084da087c7affa97706, type: 3}
+      propertyPath: m_Name
+      value: Exp Orb
+      objectReference: {fileID: 0}
+    - target: {fileID: 8484472059410838189, guid: fc466d04ea514084da087c7affa97706, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 8484472059410838189, guid: fc466d04ea514084da087c7affa97706, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 8484472059410838189, guid: fc466d04ea514084da087c7affa97706, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8484472059410838189, guid: fc466d04ea514084da087c7affa97706, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8484472059410838189, guid: fc466d04ea514084da087c7affa97706, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8484472059410838189, guid: fc466d04ea514084da087c7affa97706, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8484472059410838189, guid: fc466d04ea514084da087c7affa97706, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8484472059410838189, guid: fc466d04ea514084da087c7affa97706, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8484472059410838189, guid: fc466d04ea514084da087c7affa97706, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8484472059410838189, guid: fc466d04ea514084da087c7affa97706, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fc466d04ea514084da087c7affa97706, type: 3}
 --- !u!1 &221638928
 GameObject:
   m_ObjectHideFlags: 0
@@ -2211,7 +2272,7 @@ MonoBehaviour:
   m_RefResolutionX: 320
   m_RefResolutionY: 180
   m_UpscaleRT: 0
-  m_PixelSnapping: 1
+  m_PixelSnapping: 0
   m_CropFrameX: 0
   m_CropFrameY: 0
   m_StretchFill: 0
@@ -3226,7 +3287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
+  m_IgnoreReversedGraphics: 0
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
@@ -3264,14 +3325,14 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 2
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 519420031}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
+  m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -17727,8 +17788,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 200
-  level: 1
-  maxExp: 150
+  level: 0
+  maxExp: 145
   currentExp: 0
   maxHealth: 100
   currentHealth: 100
@@ -17742,7 +17803,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 1511130124}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 75f8e86d5e255a14f9891e2350917155, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -18879,8 +18940,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 778468559}
         m_TargetAssemblyTypeName: UpgradeManager, Assembly-CSharp
-        m_MethodName: Button0
-        m_Mode: 1
+        m_MethodName: Button
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -19348,12 +19409,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 778468559}
         m_TargetAssemblyTypeName: UpgradeManager, Assembly-CSharp
-        m_MethodName: Button2
-        m_Mode: 1
+        m_MethodName: Button
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -20037,12 +20098,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 778468559}
         m_TargetAssemblyTypeName: UpgradeManager, Assembly-CSharp
-        m_MethodName: Button1
-        m_Mode: 1
+        m_MethodName: Button
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -20192,3 +20253,4 @@ SceneRoots:
   - {fileID: 1606582025}
   - {fileID: 1179513034}
   - {fileID: 778468560}
+  - {fileID: 201032349}

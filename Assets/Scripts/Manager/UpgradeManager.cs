@@ -29,6 +29,8 @@ public class UpgradeManager : MonoBehaviour
     List<int> currentWeapons;
     List<int> newWeapons;
 
+    private bool levelUpFlag;
+
     void Start()
     {
         currentWeapons = new List<int>();
@@ -37,17 +39,39 @@ public class UpgradeManager : MonoBehaviour
         LevelUp();
     }
 
+    void Update()
+    {
+        if (levelUpFlag)
+        {
+            if (myButtons[0].activeSelf && Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                Button(0);
+            }
+            if (myButtons[1].activeSelf && Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                Button(1);
+            }
+            if (myButtons[2].activeSelf && Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                Button(2);
+            }
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Skip();
+            }
+        }
+    }
+
     public void LevelUp()
     {
         GameManager.instance.TimeStop();
+        levelUpFlag = true;
 
         List<int> selectCurrentWeapons = new List<int>(currentWeapons);
         List<int> selectNewWeapons = new List<int>(newWeapons);
 
         upgradeScreen.SetActive(true);
         skipButton.SetActive(true);
-
-        
 
         foreach(var e in currentWeapons)
         {
@@ -819,23 +843,10 @@ public class UpgradeManager : MonoBehaviour
         level.text = LevelText(number);
     }
 
-    public void Button0()
+    public void Button(int buttonIndex)
     {
-        Upgrade(buttonInput[0]);
-        upgradeScreen.SetActive(false);
-        GameManager.instance.TimeContinue();
-    }
-
-    public void Button1()
-    {
-        Upgrade(buttonInput[1]);
-        upgradeScreen.SetActive(false);
-        GameManager.instance.TimeContinue();
-    }
-
-    public void Button2()
-    {
-        Upgrade(buttonInput[2]);
+        Upgrade(buttonInput[buttonIndex]);
+        levelUpFlag = false;
         upgradeScreen.SetActive(false);
         GameManager.instance.TimeContinue();
     }
